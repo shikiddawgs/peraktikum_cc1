@@ -13,7 +13,8 @@
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #ff33a1 0%, #d81b7a 100%);
+            /* Background Gradasi Biru Laut */
+            background: linear-gradient(135deg, #0077b6 0%, #03045e 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,10 +29,10 @@
             width: 100%;
             max-width: 920px;
             min-height: 550px;
-            background-color: #050208;
+            background-color: #020813;
             border-radius: 26px;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
             display: flex;
             align-items: center;
         }
@@ -41,27 +42,26 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 62%;
+            width: 58%;
             height: 100%;
             background-image: url('miko.jpg');
             background-size: cover;
-            background-position: center top;
+            background-position: right center;
             background-repeat: no-repeat;
             z-index: 1;
-            /* Biar pixel art tetap tajam */
             image-rendering: pixelated;
         }
 
-        /* Gradasi Halus dari Hitam (Kiri) ke Gambar (Kanan) */
+        /* Gradasi Halus Menyatu dengan Panel Hitam-Biru Kiri */
         .art-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(
                 90deg, 
-                #050208 0%, 
-                #050208 38%, 
-                rgba(5, 2, 8, 0.85) 48%, 
-                rgba(5, 2, 8, 0) 68%
+                #020813 0%, 
+                #020813 42%, 
+                rgba(2, 8, 19, 0.85) 48%, 
+                rgba(2, 8, 19, 0) 62%
             );
             z-index: 2;
         }
@@ -70,7 +70,7 @@
         .content-panel {
             position: relative;
             z-index: 3;
-            width: 58%;
+            width: 55%;
             padding: 48px 52px;
             display: flex;
             flex-direction: column;
@@ -78,47 +78,52 @@
         }
 
         .title {
-            font-size: 52px;
+            font-size: 54px;
             font-weight: 800;
-            line-height: 1.08;
+            line-height: 1.05;
             letter-spacing: -0.5px;
-            margin-bottom: 36px;
+            margin-bottom: 32px;
             color: #ffffff;
+        }
+
+        /* Warna Biru Laut Menyala untuk kata Praktikum */
+        .title .highlight-blue {
+            color: #00b4d8;
+            display: block;
         }
 
         .subtitle {
             font-size: 19px;
             font-weight: 700;
-            color: #f8fafc;
+            color: #ffffff;
             margin-bottom: 14px;
         }
 
         .divider {
             width: 100%;
-            max-width: 390px;
+            max-width: 380px;
             height: 2px;
-            background: linear-gradient(90deg, #ff1493 0%, rgba(255, 20, 147, 0.1) 100%);
+            background: linear-gradient(90deg, #00b4d8 0%, rgba(0, 180, 216, 0.1) 100%);
             margin-bottom: 18px;
         }
 
         .copyright {
             font-size: 14.5px;
             line-height: 1.55;
-            color: #d1d5db;
-            margin-bottom: 34px;
-            max-width: 390px;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            max-width: 380px;
         }
 
         /* Bagian Loading */
         .loading-box {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .loading-label {
             font-size: 17px;
-            color: #f3f4f6;
+            color: #f1f5f9;
             margin-bottom: 10px;
-            font-weight: 400;
         }
 
         .loader-bars {
@@ -130,7 +135,7 @@
         .bar {
             width: 15px;
             height: 13px;
-            background-color: #ff2a9d;
+            background-color: #00b4d8;
             transform: skewX(-25deg);
             border-radius: 1px;
             animation: pulseBar 1.6s infinite ease-in-out;
@@ -140,9 +145,9 @@
         .bar:nth-child(2) { animation-delay: 0.2s; }
         .bar:nth-child(3) { animation-delay: 0.4s; }
         .bar:nth-child(4) { animation-delay: 0.6s; }
-        .bar:nth-child(5) { animation-delay: 0.8s; background-color: #6d184f; }
-        .bar:nth-child(6) { animation-delay: 1.0s; background-color: #4a1237; }
-        .bar:nth-child(7) { animation-delay: 1.2s; background-color: #350d27; }
+        .bar:nth-child(5) { animation-delay: 0.8s; background-color: #0077b6; }
+        .bar:nth-child(6) { animation-delay: 1.0s; background-color: #023e8a; }
+        .bar:nth-child(7) { animation-delay: 1.2s; background-color: #03045e; }
 
         @keyframes pulseBar {
             0%, 100% { opacity: 1; }
@@ -151,9 +156,9 @@
 
         /* Info Mahasiswa */
         .student-info {
-            border-left: 5px solid #ff1493;
+            border-left: 5px solid #00b4d8;
             padding-left: 16px;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .student-info .name {
@@ -164,50 +169,36 @@
         }
 
         .student-info .meta {
-            font-size: 18px;
-            color: #e5e7eb;
-            line-height: 1.4;
-            font-family: 'Segoe UI', sans-serif;
+            font-size: 17.5px;
+            color: #e2e8f0;
+            line-height: 1.45;
         }
 
         .student-info .meta span {
             display: inline-block;
-            width: 58px;
+            width: 72px;
         }
 
-        /* Responsif untuk layar HP */
         @media (max-width: 768px) {
-            .splash-card {
-                flex-direction: column;
-            }
-            .art-panel {
-                position: relative;
-                width: 100%;
-                height: 300px;
-            }
-            .art-overlay {
-                background: linear-gradient(0deg, #050208 15%, rgba(5, 2, 8, 0) 100%);
-            }
-            .content-panel {
-                width: 100%;
-                padding: 32px 24px;
-            }
-            .title {
-                font-size: 38px;
-            }
+            .splash-card { flex-direction: column; }
+            .art-panel { position: relative; width: 100%; height: 320px; }
+            .art-overlay { background: linear-gradient(0deg, #020813 15%, rgba(2, 8, 19, 0) 100%); }
+            .content-panel { width: 100%; padding: 32px 24px; }
+            .title { font-size: 40px; }
         }
     </style>
 </head>
 <body>
 
     <div class="splash-card">
-        <!-- Gambar Karakter Kanan -->
         <div class="art-panel"></div>
         <div class="art-overlay"></div>
 
-        <!-- Konten Teks Kiri -->
         <div class="content-panel">
-            <h1 class="title">Praktikum<br>Shikid Dawg</h1>
+            <h1 class="title">
+                <span class="highlight-blue">Praktikum</span>
+                Shikid Dawg
+            </h1>
 
             <div class="middle-section">
                 <p class="subtitle">Tugas Praktikum 1 Komputasi Awan</p>
@@ -238,6 +229,7 @@
                 <p class="name">Anggoro Cipta Widodo</p>
                 <p class="meta"><span>Kelas</span>: 24-03</p>
                 <p class="meta"><span>NIM</span>: 102042400045</p>
+                <p class="meta"><span>Jabatan</span>: Editor Keroco</p>
             </div>
         </div>
     </div>
