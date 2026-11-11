@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #ff33a1 0%, #d81b7a 100%);
+            background: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,40 +28,39 @@
             width: 100%;
             max-width: 920px;
             min-height: 550px;
-            background-color: #050208;
+            background-color: #040106;
             border-radius: 26px;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: center;
         }
 
-        /* Panel Gambar Kanan */
+        /* Panel Gambar Kanan (Ambil bagian kanan foto contoh pertama) */
         .art-panel {
             position: absolute;
             top: 0;
             right: 0;
-            width: 62%;
+            width: 58%;
             height: 100%;
             background-image: url('miko.jpg');
             background-size: cover;
-            background-position: center top;
+            background-position: right center;
             background-repeat: no-repeat;
             z-index: 1;
-            /* Biar pixel art tetap tajam */
             image-rendering: pixelated;
         }
 
-        /* Gradasi Halus dari Hitam (Kiri) ke Gambar (Kanan) */
+        /* Gradasi Halus Menyatu dengan Panel Hitam Kiri */
         .art-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(
                 90deg, 
-                #050208 0%, 
-                #050208 38%, 
-                rgba(5, 2, 8, 0.85) 48%, 
-                rgba(5, 2, 8, 0) 68%
+                #040106 0%, 
+                #040106 42%, 
+                rgba(4, 1, 6, 0.85) 48%, 
+                rgba(4, 1, 6, 0) 62%
             );
             z-index: 2;
         }
@@ -70,7 +69,7 @@
         .content-panel {
             position: relative;
             z-index: 3;
-            width: 58%;
+            width: 55%;
             padding: 48px 52px;
             display: flex;
             flex-direction: column;
@@ -78,26 +77,32 @@
         }
 
         .title {
-            font-size: 52px;
+            font-size: 54px;
             font-weight: 800;
-            line-height: 1.08;
+            line-height: 1.05;
             letter-spacing: -0.5px;
             margin-bottom: 36px;
             color: #ffffff;
         }
 
+        /* Warna Merah/Pink Menyala untuk kata Praktikum */
+        .title .highlight-red {
+            color: #ff1e56;
+            display: block;
+        }
+
         .subtitle {
             font-size: 19px;
             font-weight: 700;
-            color: #f8fafc;
+            color: #ffffff;
             margin-bottom: 14px;
         }
 
         .divider {
             width: 100%;
-            max-width: 390px;
+            max-width: 380px;
             height: 2px;
-            background: linear-gradient(90deg, #ff1493 0%, rgba(255, 20, 147, 0.1) 100%);
+            background: linear-gradient(90deg, #ff1e56 0%, rgba(255, 30, 86, 0.1) 100%);
             margin-bottom: 18px;
         }
 
@@ -106,7 +111,7 @@
             line-height: 1.55;
             color: #d1d5db;
             margin-bottom: 34px;
-            max-width: 390px;
+            max-width: 380px;
         }
 
         /* Bagian Loading */
@@ -118,7 +123,6 @@
             font-size: 17px;
             color: #f3f4f6;
             margin-bottom: 10px;
-            font-weight: 400;
         }
 
         .loader-bars {
@@ -130,7 +134,7 @@
         .bar {
             width: 15px;
             height: 13px;
-            background-color: #ff2a9d;
+            background-color: #ff1e56;
             transform: skewX(-25deg);
             border-radius: 1px;
             animation: pulseBar 1.6s infinite ease-in-out;
@@ -151,7 +155,7 @@
 
         /* Info Mahasiswa */
         .student-info {
-            border-left: 5px solid #ff1493;
+            border-left: 5px solid #ff1e56;
             padding-left: 16px;
             margin-top: 8px;
         }
@@ -167,7 +171,6 @@
             font-size: 18px;
             color: #e5e7eb;
             line-height: 1.4;
-            font-family: 'Segoe UI', sans-serif;
         }
 
         .student-info .meta span {
@@ -175,39 +178,26 @@
             width: 58px;
         }
 
-        /* Responsif untuk layar HP */
         @media (max-width: 768px) {
-            .splash-card {
-                flex-direction: column;
-            }
-            .art-panel {
-                position: relative;
-                width: 100%;
-                height: 300px;
-            }
-            .art-overlay {
-                background: linear-gradient(0deg, #050208 15%, rgba(5, 2, 8, 0) 100%);
-            }
-            .content-panel {
-                width: 100%;
-                padding: 32px 24px;
-            }
-            .title {
-                font-size: 38px;
-            }
+            .splash-card { flex-direction: column; }
+            .art-panel { position: relative; width: 100%; height: 320px; }
+            .art-overlay { background: linear-gradient(0deg, #040106 15%, rgba(4, 1, 6, 0) 100%); }
+            .content-panel { width: 100%; padding: 32px 24px; }
+            .title { font-size: 40px; }
         }
     </style>
 </head>
 <body>
 
     <div class="splash-card">
-        <!-- Gambar Karakter Kanan -->
         <div class="art-panel"></div>
         <div class="art-overlay"></div>
 
-        <!-- Konten Teks Kiri -->
         <div class="content-panel">
-            <h1 class="title">Praktikum<br>Shikid Dawg</h1>
+            <h1 class="title">
+                <span class="highlight-red">Praktikum</span>
+                Shikid Dawg
+            </h1>
 
             <div class="middle-section">
                 <p class="subtitle">Tugas Praktikum 1 Komputasi Awan</p>
