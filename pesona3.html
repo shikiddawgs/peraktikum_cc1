@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERSONA 3 // CLOUD SERVER</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial Black', Impact, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #020b1e 0%, #001f5c 50%, #003e9a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Slanted background aesthetic */
+        body::before {
+            content: "RELOAD";
+            position: absolute;
+            bottom: -50px;
+            right: -20px;
+            font-size: 160px;
+            color: rgba(0, 210, 255, 0.05);
+            font-weight: 900;
+            font-style: italic;
+            pointer-events: none;
+            user-select: none;
+        }
+        .main-card {
+            background: rgba(4, 18, 48, 0.88);
+            border: 2px solid #00d2ff;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.35), inset 0 0 15px rgba(0, 210, 255, 0.15);
+            border-radius: 4px;
+            padding: 35px 30px;
+            max-width: 460px;
+            width: 90%;
+            position: relative;
+            transform: skew(-2deg);
+        }
+        .tag-status {
+            display: inline-block;
+            background: #00d2ff;
+            color: #001338;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            transform: skew(-10deg);
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.8);
+            margin-bottom: 6px;
+        }
+        .desc {
+            font-size: 13px;
+            color: #70b4ff;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 500;
+        }
+        .stats-box {
+            background: #020c24;
+            border-left: 4px solid #00d2ff;
+            padding: 16px;
+            margin-bottom: 25px;
+            transform: skew(2deg);
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+        .stat-label {
+            color: #5c8fc7;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .stat-val {
+            color: #00f0ff;
+            font-weight: 700;
+        }
+        .btn-evoker {
+            width: 100%;
+            background: linear-gradient(90deg, #0077ff, #00d2ff);
+            color: #001338;
+            border: none;
+            padding: 14px 20px;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+            transition: all 0.2s ease;
+            transform: skew(-6deg);
+        }
+        .btn-evoker:hover {
+            background: linear-gradient(90deg, #00d2ff, #ffffff);
+            transform: skew(-6deg) scale(1.02);
+            box-shadow: 0 0 25px #00d2ff;
+        }
+    </style>
+</head>
