@@ -3,121 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PERSONA 3 // CLOUD SERVER</title>
+    <title>Praktikum Shikid Dawg - Komputasi Awan</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Arial Black', Impact, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
+
         body {
-            background: linear-gradient(135deg, #020b1e 0%, #001f5c 50%, #003e9a 100%);
-            color: #ffffff;
-            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #ff33a1 0%, #d81b7a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-        /* Slanted background aesthetic */
-        body::before {
-            content: "RELOAD";
-            position: absolute;
-            bottom: -50px;
-            right: -20px;
-            font-size: 160px;
-            color: rgba(0, 210, 255, 0.05);
-            font-weight: 900;
-            font-style: italic;
-            pointer-events: none;
-            user-select: none;
-        }
-        .main-card {
-            background: rgba(4, 18, 48, 0.88);
-            border: 2px solid #00d2ff;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.35), inset 0 0 15px rgba(0, 210, 255, 0.15);
-            border-radius: 4px;
-            padding: 35px 30px;
-            max-width: 460px;
-            width: 90%;
-            position: relative;
-            transform: skew(-2deg);
-        }
-        .tag-status {
-            display: inline-block;
-            background: #00d2ff;
-            color: #001338;
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            padding: 4px 12px;
-            text-transform: uppercase;
-            transform: skew(-10deg);
-            margin-bottom: 15px;
-        }
-        h1 {
-            font-size: 26px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            min-height: 100vh;
+            padding: 24px;
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.8);
-            margin-bottom: 6px;
         }
-        .desc {
-            font-size: 13px;
-            color: #70b4ff;
-            letter-spacing: 0.5px;
-            margin-bottom: 25px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-weight: 500;
-        }
-        .stats-box {
-            background: #020c24;
-            border-left: 4px solid #00d2ff;
-            padding: 16px;
-            margin-bottom: 25px;
-            transform: skew(2deg);
-        }
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 13px;
-        }
-        .stat-item:last-child {
-            margin-bottom: 0;
-        }
-        .stat-label {
-            color: #5c8fc7;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .stat-val {
-            color: #00f0ff;
-            font-weight: 700;
-        }
-        .btn-evoker {
+
+        /* Card Utama */
+        .splash-card {
+            position: relative;
             width: 100%;
-            background: linear-gradient(90deg, #0077ff, #00d2ff);
-            color: #001338;
-            border: none;
-            padding: 14px 20px;
-            font-size: 14px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
-            transition: all 0.2s ease;
-            transform: skew(-6deg);
+            max-width: 920px;
+            min-height: 550px;
+            background-color: #050208;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+            display: flex;
+            align-items: center;
         }
-        .btn-evoker:hover {
-            background: linear-gradient(90deg, #00d2ff, #ffffff);
-            transform: skew(-6deg) scale(1.02);
-            box-shadow: 0 0 25px #00d2ff;
+
+        /* Panel Gambar Kanan */
+        .art-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 62%;
+            height: 100%;
+            background-image: url('miko.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            z-index: 1;
+            /* Biar pixel art tetap tajam */
+            image-rendering: pixelated;
+        }
+
+        /* Gradasi Halus dari Hitam (Kiri) ke Gambar (Kanan) */
+        .art-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg, 
+                #050208 0%, 
+                #050208 38%, 
+                rgba(5, 2, 8, 0.85) 48%, 
+                rgba(5, 2, 8, 0) 68%
+            );
+            z-index: 2;
+        }
+
+        /* Konten Teks Kiri */
+        .content-panel {
+            position: relative;
+            z-index: 3;
+            width: 58%;
+            padding: 48px 52px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .title {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.5px;
+            margin-bottom: 36px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 14px;
+        }
+
+        .divider {
+            width: 100%;
+            max-width: 390px;
+            height: 2px;
+            background: linear-gradient(90deg, #ff1493 0%, rgba(255, 20, 147, 0.1) 100%);
+            margin-bottom: 18px;
+        }
+
+        .copyright {
+            font-size: 14.5px;
+            line-height: 1.55;
+            color: #d1d5db;
+            margin-bottom: 34px;
+            max-width: 390px;
+        }
+
+        /* Bagian Loading */
+        .loading-box {
+            margin-bottom: 28px;
+        }
+
+        .loading-label {
+            font-size: 17px;
+            color: #f3f4f6;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .loader-bars {
+            display: flex;
+            gap: 6px;
+            padding-left: 3px;
+        }
+
+        .bar {
+            width: 15px;
+            height: 13px;
+            background-color: #ff2a9d;
+            transform: skewX(-25deg);
+            border-radius: 1px;
+            animation: pulseBar 1.6s infinite ease-in-out;
+        }
+
+        .bar:nth-child(1) { animation-delay: 0.0s; }
+        .bar:nth-child(2) { animation-delay: 0.2s; }
+        .bar:nth-child(3) { animation-delay: 0.4s; }
+        .bar:nth-child(4) { animation-delay: 0.6s; }
+        .bar:nth-child(5) { animation-delay: 0.8s; background-color: #6d184f; }
+        .bar:nth-child(6) { animation-delay: 1.0s; background-color: #4a1237; }
+        .bar:nth-child(7) { animation-delay: 1.2s; background-color: #350d27; }
+
+        @keyframes pulseBar {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+
+        /* Info Mahasiswa */
+        .student-info {
+            border-left: 5px solid #ff1493;
+            padding-left: 16px;
+            margin-top: 8px;
+        }
+
+        .student-info .name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .student-info .meta {
+            font-size: 18px;
+            color: #e5e7eb;
+            line-height: 1.4;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .student-info .meta span {
+            display: inline-block;
+            width: 58px;
+        }
+
+        /* Responsif untuk layar HP */
+        @media (max-width: 768px) {
+            .splash-card {
+                flex-direction: column;
+            }
+            .art-panel {
+                position: relative;
+                width: 100%;
+                height: 300px;
+            }
+            .art-overlay {
+                background: linear-gradient(0deg, #050208 15%, rgba(5, 2, 8, 0) 100%);
+            }
+            .content-panel {
+                width: 100%;
+                padding: 32px 24px;
+            }
+            .title {
+                font-size: 38px;
+            }
         }
     </style>
 </head>
+<body>
+
+    <div class="splash-card">
+        <!-- Gambar Karakter Kanan -->
+        <div class="art-panel"></div>
+        <div class="art-overlay"></div>
+
+        <!-- Konten Teks Kiri -->
+        <div class="content-panel">
+            <h1 class="title">Praktikum<br>Shikid Dawg</h1>
+
+            <div class="middle-section">
+                <p class="subtitle">Tugas Praktikum 1 Komputasi Awan</p>
+                <div class="divider"></div>
+                <p class="copyright">
+                    &copy; 2024-2026 Shikid Dawg. All rights reserved.<br>
+                    Untuk keperluan praktikum Komputasi Awan.<br>
+                    Tidak untuk penggunaan komersial.
+                </p>
+            </div>
+
+            <div class="loading-box">
+                <p class="loading-label">Initializing Shikid Dawg...</p>
+                <div class="loader-bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="student-info">
+                <p class="name">Anggoro Cipta Widodo</p>
+                <p class="meta"><span>Kelas</span>: 24-03</p>
+                <p class="meta"><span>NIM</span>: 102042400045</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
